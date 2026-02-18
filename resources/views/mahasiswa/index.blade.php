@@ -1,13 +1,13 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto py-6 px-4">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
 
         {{-- Header --}}
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-400 px-4 py-2 rounded shadow">
+            <h1 class="text-2xl font-bold text-white px-4 py-2 rounded shadow">
                 Data Mahasiswa
             </h1>
             <a href="{{ route('mahasiswa.create') }}"
-            class="bg-blue-600 hover:bg-blue-700 text-gray-400 px-4 py-2 rounded shadow">
+            class="bg-blue-600 font-medium hover:bg-blue-700 text-white px-4 py-2 rounded shadow">
             + Tambah Mahasiswa
             </a>
         </div>
@@ -18,6 +18,15 @@
                 <p class="text-green-600 font-semibold">{{ session('success') }}</p>
             </div>
         @endif
+
+        {{-- Search --}}
+        <form method="GET" action="{{ route('mahasiswa.index') }}" class="mb-4"">
+            <input type="text" name="search" placeholder="Cari nama atau prodi..." value="{{ request('search') }}"
+                class="border rounded px-3 py-2">
+            <button class="bg-gray-700 text-white font-medium px-4 py-2 rounded hover:bg-gray-800">
+                Cari
+            </button>
+        </form>
 
         {{-- Tabel Data Mahasiswa --}}
         <div class="bg-white shadow rounded overflow-hidden">
@@ -73,6 +82,8 @@
                 </tbody>
             </table>
         </div>
-        
+        <div class="mt-4">
+            {{ $mahasiswa->links() }}
+        </div>
     </div>
 </x-app-layout>

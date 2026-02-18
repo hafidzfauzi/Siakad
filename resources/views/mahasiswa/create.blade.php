@@ -65,11 +65,12 @@
             {{-- Submit --}}
             <div class="flex justify-between pt-4">
                 <a href="{{ route('mahasiswa.index')}}"
-                    class="text-gray-400 hover:underline">Kembali
+                    class="bg-gray-600 hover:bg-gray-700 hover:underline text-white font-medium px-4 py-2 rounded shadow">
+                    Kembali
                 </a>
 
                 <button type="submit"
-                    class="bg-blue-600 hover:bg-blue-700 text-gray-400 px-4 px-2 rounded shadow">Submit
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded shadow">Submit
                 </button>
             </div>
         </form>
