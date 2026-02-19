@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MahasiswaApiController;
 
-Route::get('/test', function () {
-    return response()->json(['message' => 'API is working']);
+Route::middleware('api.key')
+    ->name('api.')
+    ->group(function () {
+        Route::apiResource('mahasiswa', MahasiswaApiController::class);
 });

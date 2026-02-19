@@ -18,7 +18,7 @@ class ApiKeyMiddleware
         $apikey = $request->header('X-API-KEY');
 
         if ($apikey !== env('API_KEY')) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json(['status' => false, 'message' => 'Unauthorized - Invalid API Key'], 403);
         }
         return $next($request);
     }
